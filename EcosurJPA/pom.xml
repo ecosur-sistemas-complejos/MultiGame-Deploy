@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>mx.ecosur</groupId>
+    <artifactId>ecosur-jpa</artifactId>
+    <name>EcosurJPA</name>
+    <description>
+        Common database mapping configuration for MultiGame Entity implementations. (JPA)
+    </description>
+    <parent>
+        <artifactId>multi-game-private</artifactId>
+        <groupId>mx.ecosur</groupId>
+        <version>2.0-SNAPSHOT</version>
+    </parent>
+    <organization>
+        <name>ECOSUR</name>
+        <url>http://www.ecosur.mx</url>
+    </organization>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources/META-INF</directory>
+                <targetPath>META-INF</targetPath>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+    <dependencies>
+    <dependency>
+        <groupId>mx.ecosur</groupId>
+        <artifactId>multi-game-common</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>mx.ecosur</groupId>
+        <artifactId>grid-common</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>mx.ecosur</groupId>
+        <artifactId>gente</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+        <dependency>
+            <groupId>mx.ecosur</groupId>
+            <artifactId>manantiales</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mx.ecosur</groupId>
+            <artifactId>pasale</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+</project>
