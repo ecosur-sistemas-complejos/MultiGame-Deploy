@@ -19,7 +19,7 @@
             </activation>
             <modules>
                 <module>EcosurJPA</module>
-                <module>MultigameWAR</module>
+                <module>EcosurWAR</module>
                 <module>EcosurEAR</module>
             </modules>
         </profile>
@@ -27,7 +27,7 @@
             <id>integration</id>
             <modules>
                 <module>EcosurJPA</module>
-                <module>MultigameWAR</module>
+                <module>EcosurWAR</module>
                 <module>EcosurEAR</module>
                 <module>EcosurIT</module>
             </modules>
