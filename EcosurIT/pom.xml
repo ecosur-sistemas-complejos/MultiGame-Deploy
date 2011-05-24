@@ -8,7 +8,7 @@
     <name>Ecosur Integration Tests</name>
     <description>Integration Tests for ECOSUR implementation of MultiGame.</description>
     <parent>
-        <artifactId>multi-game-private</artifactId>
+        <artifactId>deploy-module</artifactId>
         <groupId>mx.ecosur</groupId>
         <version>2.0-SNAPSHOT</version>
     </parent>
@@ -16,23 +16,18 @@
         <dependency>
             <groupId>mx.ecosur</groupId>
             <artifactId>ecosur-ejb</artifactId>
-            <version>2.0-SNAPSHOT</version>
+            <version>${project.version}</version>
             <type>ejb</type>
         </dependency>
         <dependency>
             <groupId>mx.ecosur</groupId>
             <artifactId>multi-game-common</artifactId>
-            <version>2.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>mx.ecosur</groupId>
             <artifactId>grid-common</artifactId>
-            <version>2.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>mx.ecosur</groupId>
-            <artifactId>gente</artifactId>
-            <version>1.1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>mx.ecosur</groupId>
@@ -68,11 +63,6 @@
             <groupId>org.drools</groupId>
             <artifactId>drools-api</artifactId>
             <version>${drools.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.distributions</groupId>
-            <artifactId>web-all</artifactId>
-            <version>10.0-build-20080430</version>
         </dependency>
     </dependencies>
 </project>
