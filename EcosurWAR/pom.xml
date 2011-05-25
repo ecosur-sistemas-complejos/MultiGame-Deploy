@@ -4,7 +4,7 @@
   <groupId>mx.ecosur</groupId>
   <artifactId>ecosur-war</artifactId>
   <packaging>war</packaging>
-  <name>MultigameWAR</name>
+  <name>EcosurWAR</name>
   <description>WAR file for playing MultiGame</description>
   <parent>
         <artifactId>deploy-module</artifactId>

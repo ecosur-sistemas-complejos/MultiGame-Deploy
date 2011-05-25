@@ -33,13 +33,13 @@
     </welcome-file-list>
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>multi-game</web-resource-name>
+            <web-resource-name>ecosur-war</web-resource-name>
             <url-pattern>/img/*</url-pattern>
         </web-resource-collection>
     </security-constraint>
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>multi-game</web-resource-name>
+            <web-resource-name>ecosur-war</web-resource-name>
             <url-pattern>/css/*</url-pattern>
         </web-resource-collection>
     </security-constraint>
@@ -50,7 +50,7 @@
     </security-role>
     <security-constraint>
         <web-resource-collection> 
-            <web-resource-name>multi-game</web-resource-name>
+            <web-resource-name>ecosur-war</web-resource-name>
             <url-pattern>/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
