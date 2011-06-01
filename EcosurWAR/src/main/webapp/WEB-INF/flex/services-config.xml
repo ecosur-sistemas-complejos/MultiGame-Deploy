@@ -6,10 +6,6 @@
         <service-include file-path="messaging-config.xml" />
     </services>
 
-    <security>
-        <login-command class="flex.messaging.security.TomcatLoginCommand" server="Tomcat"/>
-    </security>
-
     <channels>
         <channel-definition id="my-amf" class="mx.messaging.channels.AMFChannel">
             <endpoint url="http://{server.name}:{server.port}/{context.root}/messagebroker/amf" class="flex.messaging.endpoints.AMFEndpoint"/>
@@ -20,36 +16,25 @@
                 </serialization>
             </properties>
         </channel-definition>
-        <channel-definition id="my-polling-amf" class="mx.messaging.channels.AMFChannel">
-            <endpoint url="http://{server.name}:{server.port}/{context.root}/messagebroker/amfpolling" class="flex.messaging.endpoints.AMFEndpoint"/>
-            <properties>
-                <polling-enabled>true</polling-enabled>
-                <polling-interval-seconds>2</polling-interval-seconds>
-            </properties>          
-        </channel-definition>
     </channels>
 
     <logging>
-        <target class="flex.messaging.log.ConsoleTarget" level="Error">
+        <target class="flex.messaging.log.ConsoleTarget" level="Info">
             <properties>
-                <prefix>[BlazeDS] </prefix>
+                <prefix>[BlazeDS]</prefix>
                 <includeDate>false</includeDate>
                 <includeTime>false</includeTime>
                 <includeLevel>true</includeLevel>
                 <includeCategory>false</includeCategory>
             </properties>
             <filters>
-                <pattern>Endpoint.*</pattern>
-                <!-- pattern>Service.*</pattern>
-                <pattern>Configuration</pattern-->
+                <pattern>Message.*</pattern>
             </filters>
         </target>
     </logging>
-
     <system>
         <redeploy>
-            <enabled>false</enabled>
+            <enabled>true</enabled>
         </redeploy>
     </system>
-
 </services-config>
