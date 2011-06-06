@@ -7,7 +7,7 @@
     </adapters>
 
     <default-channels>
-        <channel ref="my-amf"/>
+        <channel ref="amf"/>
     </default-channels>
 
     <destination id="gameService">
