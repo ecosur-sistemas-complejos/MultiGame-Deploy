@@ -8,7 +8,7 @@
     </adapters>
 
     <default-channels>
-        <channel ref="my-amf"/>
+        <channel ref="amf"/>
     </default-channels>
     
     <destination id="multigame-destination">
@@ -16,7 +16,7 @@
             <jms>
                 <destination-type>Topic</destination-type>
                 <message-type>javax.jms.ObjectMessage</message-type>
-                <connection-factory>ConnectionFactory</connection-factory>
+                <connection-factory>XAConnectionFactory</connection-factory>
                 <destination-jndi-name>MultiGame</destination-jndi-name>
                 <delivery-mode>PERSISTENT</delivery-mode>
                 <message-priority>DEFAULT_PRIORITY</message-priority>
