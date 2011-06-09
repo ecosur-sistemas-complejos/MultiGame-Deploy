@@ -48,6 +48,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-guvnor</artifactId>
+            <version>${drools.version}</version>
+            <type>war</type>
+        </dependency-->
         <dependency>
             <groupId>mx.ecosur</groupId>
             <artifactId>gente</artifactId>
