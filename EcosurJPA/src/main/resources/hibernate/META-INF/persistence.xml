@@ -30,12 +30,6 @@
         <class>mx.ecosur.multigame.impl.entity.manantiales.MoveHistory</class>
         <class>mx.ecosur.multigame.impl.entity.manantiales.SimpleAgent</class>
         <class>mx.ecosur.multigame.impl.entity.manantiales.PuzzleSuggestion</class>
-        <!-- Pasale -->
-        <class>mx.ecosur.multigame.impl.entity.pasale.PasaleFicha</class>
-        <class>mx.ecosur.multigame.impl.entity.pasale.PasaleGame</class>
-        <class>mx.ecosur.multigame.impl.entity.pasale.PasaleGrid</class>
-        <class>mx.ecosur.multigame.impl.entity.pasale.PasaleMove</class>
-        <class>mx.ecosur.multigame.impl.entity.pasale.PasalePlayer</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
             <property name="hibernate.show_sql" value="false"/>
