@@ -7,11 +7,18 @@
   <name>EcosurWAR</name>
   <description>WAR file for playing MultiGame</description>
   <parent>
-        <artifactId>deploy-module</artifactId>
-        <groupId>mx.ecosur</groupId>
-        <version>2.0-SNAPSHOT</version>
-    </parent>
-   <dependencies>
+    <artifactId>deploy-module</artifactId>
+    <groupId>mx.ecosur</groupId>
+    <version>2.0-SNAPSHOT</version>
+  </parent>
+  <dependencies>
+    <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>flex-config</artifactId>
+        <version>${project.version}</version>
+        <classifier>resources</classifier>
+        <type>tar.gz</type>
+    </dependency>
     <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-entitymanager</artifactId>
@@ -42,9 +49,30 @@
         <type>swf</type>
     </dependency>
    </dependencies>
-  <build>
-   <finalName>MultiGame</finalName>
-   <plugins>
+   <build>
+    <finalName>MultiGame</finalName>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>unpack-dependencies</goal>
+                    </goals>
+                    <phase>generate-resources</phase>
+                    <configuration>
+                        <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/flex</outputDirectory>
+                        <includeArtifactIds>flex-config</includeArtifactIds>
+                        <includeGroupIds>${project.groupId}</includeGroupIds>
+                        <classifier>resources</classifier>
+                        <type>tar.gz</type>
+                        <excludeTypes>jar</excludeTypes>
+                        <excludeTransitive>true</excludeTransitive>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
         <plugin>
             <groupId>org.sonatype.flexmojos</groupId>
             <artifactId>flexmojos-maven-plugin</artifactId>
@@ -61,5 +89,5 @@
             </executions>
         </plugin>
     </plugins>
-  </build>
+   </build>
 </project>
