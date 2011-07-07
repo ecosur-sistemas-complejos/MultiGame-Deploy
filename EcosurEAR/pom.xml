@@ -139,10 +139,6 @@
                         </jarModule>
                         <jarModule>
                             <groupId>mx.ecosur</groupId>
-                            <artifactId>pasale</artifactId>
-                        </jarModule>
-                        <jarModule>
-                            <groupId>mx.ecosur</groupId>
                             <artifactId>ecosur-jpa</artifactId>
                         </jarModule>
                         <jarModule>
