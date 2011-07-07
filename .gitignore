@@ -1,3 +1,7 @@
 /EcosurEAR/target/
 /EcosurJPA/target/
 /EcosurWAR/target/
+/deploy-module.iml
+/EcosurEAR/ecosur-ear.iml
+/EcosurJPA/ecosur-jpa.iml
+/EcosurWAR/ecosur-war.iml
