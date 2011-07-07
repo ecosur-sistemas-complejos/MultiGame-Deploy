@@ -56,10 +56,5 @@
             <artifactId>manantiales</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>mx.ecosur</groupId>
-            <artifactId>pasale</artifactId>
-            <version>${project.version}</version>
-        </dependency>
     </dependencies>
 </project>
