@@ -4,8 +4,12 @@
              version="2.0">
     <persistence-unit name="MultiGamePU">
         <!--provider>org.hibernate.ejb.HibernatePersistence</provider-->
+        <!-- Glassfish Derby -->
         <!--jta-data-source>jdbc/__default</jta-data-source-->
-        <jta-data-source>java:DefaultDS</jta-data-source>
+        <!-- JBoss HSQL -->
+        <!--jta-data-source>jdbc/java:DefaultDS</jta-data-source-->
+        <!-- MySQL -->
+        <jta-data-source>java:MySQLDS</jta-data-source>
         <!-- Grid entities -->
         <class>mx.ecosur.multigame.grid.entity.GameGrid</class>
         <class>mx.ecosur.multigame.grid.entity.GridCell</class>
@@ -33,8 +37,7 @@
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
             <property name="hibernate.show_sql" value="false"/>
-            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
-            <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
         </properties>
     </persistence-unit>
 </persistence>
