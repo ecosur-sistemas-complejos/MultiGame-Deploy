@@ -14,21 +14,27 @@ import static org.junit.Assert.*;
 
 import java.rmi.RemoteException;
 
+import java.util.Properties;
 import java.util.Set;
 
+import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.security.auth.login.LoginContext;
 
 import mx.ecosur.multigame.ejb.interfaces.RegistrarRemote;
 import mx.ecosur.multigame.ejb.interfaces.SharedBoardRemote;
+
+
 import mx.ecosur.multigame.enums.MoveStatus;
 import mx.ecosur.multigame.enums.SuggestionStatus;
 import mx.ecosur.multigame.exception.InvalidMoveException;
 import mx.ecosur.multigame.exception.InvalidRegistrationException;
 import mx.ecosur.multigame.exception.InvalidSuggestionException;
+import mx.ecosur.multigame.grid.entity.*;
+import mx.ecosur.multigame.impl.entity.manantiales.*;
 import mx.ecosur.multigame.impl.enums.manantiales.Mode;
 import mx.ecosur.multigame.impl.enums.manantiales.TokenType;
-
 import mx.ecosur.multigame.model.interfaces.Game;
 import mx.ecosur.multigame.model.interfaces.Move;
 import mx.ecosur.multigame.model.interfaces.Registrant;
@@ -50,10 +56,16 @@ public class ManantialesSharedBoardTest {
 
 
     @Before
-    public void fixtures () throws RemoteException, NamingException, InvalidRegistrationException {
-        ProgrammaticLogin login = new ProgrammaticLogin();
-        login.login("MultiGame", "test");
-        InitialContext ic = new InitialContext();
+    public void fixtures () throws Exception {
+        Properties props = new Properties();
+        props.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+        props.put(Context.URL_PKG_PREFIXES, "org.jnp.interfaces.NamingContextFactory");
+        props.put(Context.PROVIDER_URL, "jnp://localhost:1099/");
+
+        AuthCallbackHandler cbHandler = new AuthCallbackHandler("alice", "test");
+        LoginContext lctx = new LoginContext("security-client", cbHandler);
+        lctx.login();
+        InitialContext ic = new InitialContext(props);
 
         registrar.set((RegistrarRemote) ic.lookup(
                 "mx.ecosur.multigame.ejb.interfaces.RegistrarRemote"));
@@ -76,20 +88,19 @@ public class ManantialesSharedBoardTest {
         }
 
         /* Get the SharedBoard */
-        board = (SharedBoardRemote) ic.lookup(
-                "mx.ecosur.multigame.ejb.interfaces.SharedBoardRemote");
-        game = (ManantialesGame) board.getGame(gameId).getImplementation();
+        board = (SharedBoardRemote) ic.lookup("mx.ecosur.multigame.ejb.interfaces.SharedBoardRemote");
+        game = (ManantialesGame) board.getGame(gameId);
 
         /* Set the GamePlayers from the SharedBoard */
         Set<GridPlayer> players = game.getPlayers();
         for (GridPlayer p : players) {
-            if (p.getRegistrant().getName().equals("alice"))
+            if (p.getName().equals("alice"))
                 alice = (ManantialesPlayer) p;
-            else if (p.getRegistrant().getName().equals("bob"))
+            else if (p.getName().equals("bob"))
                 bob = (ManantialesPlayer) p;
-            else if (p.getRegistrant().getName().equals("charlie"))
+            else if (p.getName().equals("charlie"))
                 charlie = (ManantialesPlayer) p;
-            else if (p.getRegistrant().getName().equals("denise"))
+            else if (p.getName().equals("denise"))
                 denise = (ManantialesPlayer) p;
         }
 
@@ -139,7 +150,7 @@ public class ManantialesSharedBoardTest {
         ficha = new ManantialesFicha(3,4, charlie.getColor(),
                 TokenType.MODERATE_PASTURE);
         move = new ManantialesMove (charlie, ficha);
-        mv = board.doMove(game, new Move (move));
+        mv = board.doMove(game, move);
 
         game = board.getGame(gameId);
         ManantialesGame mg = (ManantialesGame) game;
@@ -153,8 +164,6 @@ public class ManantialesSharedBoardTest {
         Game game = board.getGame(gameId);
         ManantialesGame impl = (ManantialesGame) game;
         impl.setMode (Mode.BASIC_PUZZLE);
-        board.shareGame(impl);
-
         ManantialesFicha play = new ManantialesFicha(5, 4, alice.getColor(), TokenType.MODERATE_PASTURE);
         ManantialesFicha change = new ManantialesFicha(4, 0, alice.getColor(), TokenType.MODERATE_PASTURE);
 
@@ -209,9 +218,7 @@ public class ManantialesSharedBoardTest {
     public void testSuggestionRejected () throws InvalidMoveException, InvalidSuggestionException {
         Game game = board.getGame(gameId);
         ManantialesGame impl = (ManantialesGame) game;
-        impl.setMode (Mode.BASIC_PUZZLE);
-        board.shareGame(impl);
-
+        impl.setMode(Mode.BASIC_PUZZLE);
         ManantialesFicha play = new ManantialesFicha(5, 4, alice.getColor(), TokenType.MODERATE_PASTURE);
         ManantialesFicha change = new ManantialesFicha(4, 0, alice.getColor(), TokenType.MODERATE_PASTURE);
 
