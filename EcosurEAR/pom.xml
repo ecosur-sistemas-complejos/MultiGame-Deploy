@@ -104,7 +104,7 @@
                 <configuration>
                     <security>
                         <security-role>
-                            <role-name>admin</role-name>
+                            <role-name>MultiGame</role-name>
                         </security-role>
                     </security>
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
