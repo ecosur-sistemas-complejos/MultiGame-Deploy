@@ -58,6 +58,7 @@ public class ManantialesSharedBoardTest {
 
     @Before
     public void fixtures () throws Exception {
+        gameId = 0;
         Hashtable ht = new Hashtable();
         ht.put(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.security.jndi.JndiLoginInitialContextFactory");
         ht.put(Context.PROVIDER_URL, "jnp://localhost:1099");
@@ -134,29 +135,145 @@ public class ManantialesSharedBoardTest {
      * Needs a rewrite. Removed from test cycle pending rewrite.
      *
      * @throws InvalidMoveException */
-
-    public void testCheckConstraints () throws InvalidMoveException {
-        Game game = board.getGame(gameId);
+    @Test
+    public void testManantialCheckConstraints () throws InvalidMoveException {
+        ManantialesGame game = (ManantialesGame) board.getGame(gameId);
         ManantialesFicha ficha = new ManantialesFicha(4,3, alice.getColor(),
                 TokenType.MODERATE_PASTURE);
-
         ManantialesMove move = new ManantialesMove (alice, ficha);
+        move.setMode(game.getMode());
         Move mv = board.doMove(game, move);
-
+        assertEquals(MoveStatus.EVALUATED, mv.getStatus());
         ficha = new ManantialesFicha(4,5, bob.getColor(),
                 TokenType.MODERATE_PASTURE);
+        bob.setTurn(true);
         move = new ManantialesMove (bob, ficha);
+        game = (ManantialesGame) board.getGame(gameId);
         mv = board.doMove(game, move);
-
+        assertEquals(MoveStatus.EVALUATED, mv.getStatus());
         ficha = new ManantialesFicha(3,4, charlie.getColor(),
                 TokenType.MODERATE_PASTURE);
+        charlie.setTurn(true);
         move = new ManantialesMove (charlie, ficha);
+        game = (ManantialesGame) board.getGame(gameId);
         mv = board.doMove(game, move);
+        assertEquals(MoveStatus.EVALUATED, mv.getStatus());
+        game = (ManantialesGame) board.getGame(gameId);
+        assertEquals (3, game.getMoves().size());
+        assertTrue ("CheckConstraint not fired!", game.getCheckConditions() != null);
+        assertEquals(1, game.getCheckConditions().size());
+    }
 
-        game = board.getGame(gameId);
-        ManantialesGame mg = (ManantialesGame) game;
-        assertTrue ("CheckConstraint not fired!", mg.getCheckConditions() != null);
-        assertEquals (1, mg.getCheckConditions().size());
+   @Test
+    public void testWestCheckConstraints () throws InvalidMoveException {
+       ManantialesGame game = (ManantialesGame) board.getGame(gameId);
+       ManantialesFicha ficha = new ManantialesFicha(2,4, alice.getColor(),
+                TokenType.MODERATE_PASTURE);
+       ManantialesMove move = new ManantialesMove (alice, ficha);
+       Move mv = board.doMove(game, move);
+       assertEquals(MoveStatus.EVALUATED, mv.getStatus());
+       ficha = new ManantialesFicha(1,4, bob.getColor(),
+                TokenType.MODERATE_PASTURE);
+       bob.setTurn(true);
+       move = new ManantialesMove (bob, ficha);
+       game = (ManantialesGame) board.getGame(gameId);
+       mv = board.doMove(game, move);
+       assertEquals(MoveStatus.EVALUATED, mv.getStatus());
+       ficha = new ManantialesFicha(0,4, charlie.getColor(),
+                TokenType.MODERATE_PASTURE);
+       charlie.setTurn(true);
+       move = new ManantialesMove (charlie, ficha);
+       game = (ManantialesGame) board.getGame(gameId);
+       mv = board.doMove(game, move);
+       assertEquals(MoveStatus.EVALUATED, mv.getStatus());
+       game = (ManantialesGame) board.getGame(gameId);
+       assertEquals (3, game.getMoves().size());
+       assertTrue ("CheckConstraint not fired!", game.getCheckConditions() != null);
+       assertEquals(1, game.getCheckConditions().size());
+    }
+
+    @Test
+    public void testNorthCheckConstraints () throws InvalidMoveException {
+        ManantialesGame game = (ManantialesGame) board.getGame(gameId);
+        ManantialesFicha ficha = new ManantialesFicha(4,0, alice.getColor(),
+                TokenType.MODERATE_PASTURE);
+        ManantialesMove move = new ManantialesMove (alice, ficha);
+        Move mv = board.doMove(game, move);
+        assertEquals(MoveStatus.EVALUATED, mv.getStatus());
+        ficha = new ManantialesFicha(4,1, bob.getColor(),
+                TokenType.MODERATE_PASTURE);
+        bob.setTurn(true);
+        move = new ManantialesMove (bob, ficha);
+        game = (ManantialesGame) board.getGame(gameId);
+        mv = board.doMove(game, move);
+        assertEquals(MoveStatus.EVALUATED, mv.getStatus());
+        ficha = new ManantialesFicha(4,2, charlie.getColor(),
+                TokenType.MODERATE_PASTURE);
+        charlie.setTurn(true);
+        move = new ManantialesMove (charlie, ficha);
+        game = (ManantialesGame) board.getGame(gameId);
+        mv = board.doMove(game, move);
+        assertEquals(MoveStatus.EVALUATED, mv.getStatus());
+        game = (ManantialesGame) board.getGame(gameId);
+        assertEquals (3, game.getMoves().size());
+        assertTrue("CheckConstraint not fired!", game.getCheckConditions() != null);
+        assertEquals(1, game.getCheckConditions().size());
+    }
+
+    @Test
+    public void testEastCheckConstraints () throws InvalidMoveException {
+        ManantialesGame game = (ManantialesGame) board.getGame(gameId);
+        ManantialesFicha ficha = new ManantialesFicha(6,4, alice.getColor(),
+                TokenType.MODERATE_PASTURE);
+        ManantialesMove move = new ManantialesMove (alice, ficha);
+        Move mv = board.doMove(game, move);
+        assertEquals(MoveStatus.EVALUATED, mv.getStatus());
+        ficha = new ManantialesFicha(7,4, bob.getColor(),
+                TokenType.MODERATE_PASTURE);
+        bob.setTurn(true);
+        move = new ManantialesMove (bob, ficha);
+        game = (ManantialesGame) board.getGame(gameId);
+        mv = board.doMove(game, move);
+        assertEquals(MoveStatus.EVALUATED, mv.getStatus());
+        ficha = new ManantialesFicha(8,4, charlie.getColor(),
+                TokenType.MODERATE_PASTURE);
+        charlie.setTurn(true);
+        move = new ManantialesMove (charlie, ficha);
+        game = (ManantialesGame) board.getGame(gameId);
+        mv = board.doMove(game, move);
+        assertEquals(MoveStatus.EVALUATED, mv.getStatus());
+        game = (ManantialesGame) board.getGame(gameId);
+        assertEquals (3, game.getMoves().size());
+        assertTrue ("CheckConstraint not fired!", game.getCheckConditions() != null);
+        assertEquals (1, game.getCheckConditions().size());
+    }
+
+    @Test
+    public void testSouthCheckConstraints () throws InvalidMoveException {
+        ManantialesGame game = (ManantialesGame) board.getGame(gameId);
+        ManantialesFicha ficha = new ManantialesFicha(4,6, alice.getColor(),
+                TokenType.MODERATE_PASTURE);
+        ManantialesMove move = new ManantialesMove (alice, ficha);
+        Move mv = board.doMove(game, move);
+        assertEquals(MoveStatus.EVALUATED, mv.getStatus());
+        ficha = new ManantialesFicha(4,7, bob.getColor(),
+                TokenType.MODERATE_PASTURE);
+        bob.setTurn(true);
+        move = new ManantialesMove (bob, ficha);
+        game = (ManantialesGame) board.getGame(gameId);
+        mv = board.doMove(game, move);
+        assertEquals(MoveStatus.EVALUATED, mv.getStatus());
+        charlie.setTurn(true);
+        ficha = new ManantialesFicha(4,8, charlie.getColor(),
+                TokenType.MODERATE_PASTURE);
+        move = new ManantialesMove (charlie, ficha);
+        game = (ManantialesGame) board.getGame(gameId);
+        mv = board.doMove(game, move);
+        assertEquals(MoveStatus.EVALUATED, mv.getStatus());
+        game = (ManantialesGame) board.getGame(gameId);
+        assertEquals (3, game.getMoves().size());
+        assertTrue ("CheckConstraint not fired!", game.getCheckConditions() != null);
+        assertEquals(1, game.getCheckConditions().size());
     }
 
     @SuppressWarnings("unchecked")
@@ -201,7 +318,7 @@ public class ManantialesSharedBoardTest {
         System.out.println ("Move: [" + move.getId() + "] =" + move);
 
         assertTrue ("Move not evaluated@!  Status [" + move.getStatus() + "]", move.getStatus().equals(
-                MoveStatus.MOVED));
+                MoveStatus.EVALUATED));
 
         GridGame gridGame = (GridGame) board.getGame(gameId);
         GameGrid grid = gridGame.getGrid();
