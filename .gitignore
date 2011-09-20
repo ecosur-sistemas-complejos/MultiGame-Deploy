@@ -5,14 +5,15 @@
 /EcosurEAR/ecosur-ear.iml
 /EcosurJPA/ecosur-jpa.iml
 /EcosurWAR/ecosur-war.iml
-/EcosurIT/target/
 /.project
 /.settings/
+/EcosurEAR/.classpath
 /EcosurEAR/.project
 /EcosurEAR/.settings/
 /EcosurIT/.classpath
 /EcosurIT/.project
 /EcosurIT/.settings/
+/EcosurIT/target/
 /EcosurJPA/.classpath
 /EcosurJPA/.project
 /EcosurJPA/.settings/

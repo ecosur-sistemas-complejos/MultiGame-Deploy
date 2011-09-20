@@ -50,8 +50,9 @@
         </dependency>
         <!--dependency>
             <groupId>org.drools</groupId>
-            <artifactId>drools-guvnor</artifactId>
+            <artifactId>guvnor-distribution-wars</artifactId>
             <version>${drools.version}</version>
+            <classifier>jboss-as-6.0</classifier>
             <type>war</type>
         </dependency-->
         <dependency>
@@ -156,7 +157,7 @@
                         </webModule>
                         <!--webModule>
                             <groupId>org.drools</groupId>
-                            <artifactId>drools-guvnor</artifactId>
+                            <artifactId>guvnor-distribution-wars</artifactId>
                         </webModule-->
                     </modules>
                 </configuration>
