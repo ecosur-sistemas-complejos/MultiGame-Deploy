@@ -1,6 +1,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<%@ page
+    import="java.util.ResourceBundle"
+%>
+<%
+    ResourceBundle bundle = ResourceBundle.getBundle("error", request.getLocale());
+%>
 <head>
     <title>ChiapasGames.net</title>
     <link rel="stylesheet" type="text/css" href="css/globals.css" />    
@@ -38,8 +44,8 @@
                 </div>
             </div>
         <div id="content">
-            <p>Please contact the developer for access: <a href="mailto:awaterma@chiapasgames.net">Andrew Waterman</a></p>
-            <p>Click <a href="login.html">here</a> to return to the home page.</p>
+            <p><%=bundle.getString("developer")%><a href="mailto:awaterma@ecosur.mx">&nbsp;Andrew Waterman</a></p>
+            <p><%=bundle.getString("click")%></p>
         </div>
     </div>
     <script type="text/javascript">
