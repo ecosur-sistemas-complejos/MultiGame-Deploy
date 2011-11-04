@@ -15,13 +15,11 @@ import static org.junit.Assert.*;
 import java.rmi.RemoteException;
 
 import java.util.Hashtable;
-import java.util.Properties;
 import java.util.Set;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.security.auth.login.LoginContext;
 
 import mx.ecosur.multigame.ejb.interfaces.RegistrarRemote;
 import mx.ecosur.multigame.ejb.interfaces.SharedBoardRemote;
@@ -76,7 +74,7 @@ public class ManantialesSharedBoardTest {
             new GridRegistrant ("denise")};
 
         ManantialesGame game = new ManantialesGame ();
-        game.setMode(Mode.CLASSIC);
+        game.setMode(Mode.COMPETITIVE);
 
         for (int i = 0; i < 4; i++) {
             Registrant registrant = registrar.get().register(registrants[i]);
