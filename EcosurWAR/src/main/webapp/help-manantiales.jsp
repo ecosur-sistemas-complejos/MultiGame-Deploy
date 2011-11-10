@@ -7,74 +7,77 @@
         <h1><%=bundle.getString("title")%>
         </h1>
         <br>
-
-        <h3><%=bundle.getString("purpose.title")%>
-        </h3>
-
+        <h3><%=bundle.getString("purpose.title")%></h3>
+        <br/>
+        <br/>
         <p><%=bundle.getString("purpose.1")%>
         </p>
-
+        <br/>
         <p><%=bundle.getString("purpose.2")%>
         </p>
-
+        <br/>
         <h3><%=bundle.getString("token.title")%>
         </h3>
-
+        <br/>
+        <br/>
         <p><%=bundle.getString("token.1")%>
         </p>
-
+        <br/>
         <p><%=bundle.getString("token.2")%>
         </p>
         <table><%=bundle.getString("token.table")%>
         </table>
         <p><%=bundle.getString("token.3")%>
         </p>
-
+        <br/>
         <p><%=bundle.getString("token.4")%>
         </p>
-
+        <br/>
         <h3><%=bundle.getString("board.title")%>
         </h3>
-
+        <br/>
+        <br/>
         <p><%=bundle.getString("board.1")%>
         </p>
-
+        <br/>
         <p><%=bundle.getString("board.2")%>
         </p>
-
+        <br/>
         <h3><%=bundle.getString("land_use.title")%>
         </h3>
-
+        <br/>
+        <br/>
         <p><%=bundle.getString("land_use.1")%>
         </p>
-
+        <br/>
         <p><%=bundle.getString("land_use.2")%>
         </p>
-
+        <br/>
         <p><%=bundle.getString("land_use.3")%>
         </p>
-
+        <br/>
         <p><%=bundle.getString("land_use.4")%>
         </p>
-
+        <br/>
         <h3><%=bundle.getString("decisions.title")%>
         </h3>
-
+        <br/>
+        <br/>
         <p><%=bundle.getString("decisions.subtitle")%>
         </p>
-
+        <br/>
         <p><%=bundle.getString("decisions.1")%>
         </p>
-
+        <br/>
         <p><%=bundle.getString("decisions.2")%>
         </p>
-
+        <br/>
         <p><%=bundle.getString("decisions.3")%>
         </p>
-
+        <br/>
         <p><%=bundle.getString("decisions.4")%>
         </p>
-
+        <br/>
         <p><%=bundle.getString("decisions.5")%>
         </p>
     </body>
