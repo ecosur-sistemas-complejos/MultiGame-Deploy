@@ -19,7 +19,7 @@ public class TestLoginEsPropertyBundle {
 
     @Test
     public void testTitle() {
-        assertEquals(bundle.getString("title"), "MultiGame a ChiapasGames");
+        assertEquals(bundle.getString("title"), "MultiGame en ChiapasGames");
     }
 
     @Test
