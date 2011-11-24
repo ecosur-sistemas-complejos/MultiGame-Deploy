@@ -30,10 +30,6 @@
         <br/>
         <textformat blockindent="5"><%=bundle.getString("comp.2.table.row.3")%></textformat>
         <br/>
-        <textformat blockindent="5"><%=bundle.getString("comp.2.table.row.4")%></textformat>
-        <br/>
-        <textformat blockindent="5"><%=bundle.getString("comp.2.table.row.5")%></textformat>
-        <br/>
         <br/>
         <p><%=bundle.getString("comp.2.c")%></p>
         <br/>
