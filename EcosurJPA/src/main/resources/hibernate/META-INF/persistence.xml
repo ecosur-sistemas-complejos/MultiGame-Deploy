@@ -19,23 +19,23 @@
         <class>mx.ecosur.multigame.grid.entity.GridPlayer</class>
         <class>mx.ecosur.multigame.grid.entity.GridRegistrant</class>
         <!-- Gente -->
-        <class>mx.ecosur.multigame.impl.entity.gente.GenteGame</class>
-        <class>mx.ecosur.multigame.impl.entity.gente.GenteMove</class>
-        <class>mx.ecosur.multigame.impl.entity.gente.GentePlayer</class>
-        <class>mx.ecosur.multigame.impl.entity.gente.GenteStrategyAgent</class>
-        <class>mx.ecosur.multigame.impl.entity.gente.Tessera</class>
-        <class>mx.ecosur.multigame.impl.entity.gente.Tria</class>
+        <class>mx.ecosur.multigame.gente.entity.GenteGame</class>
+        <class>mx.ecosur.multigame.gente.entity.GenteMove</class>
+        <class>mx.ecosur.multigame.gente.entity.GentePlayer</class>
+        <class>mx.ecosur.multigame.gente.entity.GenteStrategyAgent</class>
+        <class>mx.ecosur.multigame.gente.entity.Tessera</class>
+        <class>mx.ecosur.multigame.gente.entity.Tria</class>
         <!-- Manantiales -->
-        <class>mx.ecosur.multigame.impl.entity.manantiales.CheckCondition</class>
-        <class>mx.ecosur.multigame.impl.entity.manantiales.ManantialesFicha</class>
-        <class>mx.ecosur.multigame.impl.entity.manantiales.ManantialesGame</class>
-        <class>mx.ecosur.multigame.impl.entity.manantiales.ManantialesMove</class>
-        <class>mx.ecosur.multigame.impl.entity.manantiales.ManantialesPlayer</class>
-        <class>mx.ecosur.multigame.impl.entity.manantiales.MoveHistory</class>
-        <class>mx.ecosur.multigame.impl.entity.manantiales.SimpleAgent</class>
-        <class>mx.ecosur.multigame.impl.entity.manantiales.PuzzleSuggestion</class>
+        <class>mx.ecosur.multigame.manantiales.entity.CheckCondition</class>
+        <class>mx.ecosur.multigame.manantiales.entity.ManantialesFicha</class>
+        <class>mx.ecosur.multigame.manantiales.entity.ManantialesGame</class>
+        <class>mx.ecosur.multigame.manantiales.entity.ManantialesMove</class>
+        <class>mx.ecosur.multigame.manantiales.entity.ManantialesPlayer</class>
+        <class>mx.ecosur.multigame.manantiales.entity.MoveHistory</class>
+        <class>mx.ecosur.multigame.manantiales.entity.SimpleAgent</class>
+        <class>mx.ecosur.multigame.manantiales.entity.PuzzleSuggestion</class>
         <properties>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
             <property name="hibernate.show_sql" value="false"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
         </properties>

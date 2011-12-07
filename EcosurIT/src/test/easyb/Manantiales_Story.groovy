@@ -1,13 +1,13 @@
 import mx.ecosur.multigame.session.ManantialesSharedBoardTest
-import mx.ecosur.multigame.impl.enums.manantiales.TokenType;
-import mx.ecosur.multigame.impl.entity.manantiales.ManantialesFicha
-import mx.ecosur.multigame.impl.entity.manantiales.ManantialesMove
+import mx.ecosur.multigame.manantiales.enums.TokenType;
+import mx.ecosur.multigame.manantiales.entity.ManantialesFicha
+import mx.ecosur.multigame.manantiales.entity.ManantialesMove
 import mx.ecosur.multigame.model.Move
-import mx.ecosur.multigame.impl.entity.manantiales.ManantialesGame
+import mx.ecosur.multigame.manantiales.entity.ManantialesGame
 import mx.ecosur.multigame.model.interfaces.Game
-import mx.ecosur.multigame.impl.Color
-import mx.ecosur.multigame.impl.model.GridCell
-import mx.ecosur.multigame.impl.entity.manantiales.ManantialesFicha
+import mx.ecosur.multigame.manantiales.Color
+import mx.ecosur.multigame.manantiales.model.GridCell
+import mx.ecosur.multigame.manantiales.entity.ManantialesFicha
 import mx.ecosur.multigame.model.interfaces.Game;
 
 /*

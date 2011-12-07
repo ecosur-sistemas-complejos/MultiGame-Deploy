@@ -31,9 +31,9 @@ import mx.ecosur.multigame.exception.InvalidMoveException;
 import mx.ecosur.multigame.exception.InvalidRegistrationException;
 import mx.ecosur.multigame.exception.InvalidSuggestionException;
 import mx.ecosur.multigame.grid.entity.*;
-import mx.ecosur.multigame.impl.entity.manantiales.*;
-import mx.ecosur.multigame.impl.enums.manantiales.Mode;
-import mx.ecosur.multigame.impl.enums.manantiales.TokenType;
+import mx.ecosur.multigame.manantiales.entity.*;
+import mx.ecosur.multigame.manantiales.enums.Mode;
+import mx.ecosur.multigame.manantiales.enums.TokenType;
 import mx.ecosur.multigame.model.interfaces.Game;
 import mx.ecosur.multigame.model.interfaces.Move;
 import mx.ecosur.multigame.model.interfaces.Registrant;
@@ -344,7 +344,7 @@ public class ManantialesSharedBoardTest {
         PuzzleSuggestion pzs = new PuzzleSuggestion();
         pzs.setSuggestor(bob);
         pzs.setStatus(SuggestionStatus.UNEVALUATED);
-        move = new ManantialesMove (alice,play,change);
+        move = new ManantialesMove(alice,play,change);
         pzs.setMove (move);
 
         Suggestion suggestion = board.makeSuggestion(game, pzs);
