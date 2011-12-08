@@ -2,9 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%@ page
     import="java.util.ResourceBundle"
+    import="java.security.Principal"
 %>
 <%
     ResourceBundle bundle = ResourceBundle.getBundle("login", request.getLocale());
+    /* Check for Principal and user in MultiGame role, if there redirect to index */
+    Principal p = request.getUserPrincipal();
+    if (p != null && request.isUserInRole("MultiGame"))
+        response.sendRedirect("/index.html");
 %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
