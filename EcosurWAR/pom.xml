@@ -83,7 +83,7 @@
                         <goal>copy-flex-resources</goal>
                     </goals>
                     <configuration>
-                        <stripVersion>true</stripVersion>
+                        <stripVersion>false</stripVersion>
                     </configuration>
                 </execution>
             </executions>
