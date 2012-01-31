@@ -26,7 +26,7 @@
     </dependency>  
     <dependency>
         <groupId>mx.ecosur</groupId>
-        <artifactId>flex-client</artifactId>
+        <artifactId>flex-multigame</artifactId>
         <version>${project.version}</version>
         <type>swf</type>
     </dependency>
