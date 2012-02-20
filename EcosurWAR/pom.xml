@@ -38,7 +38,7 @@
     </dependency>
     <dependency>
         <groupId>mx.ecosur</groupId>
-        <artifactId>flex-manantiales</artifactId>
+        <artifactId>flash-manantiales</artifactId>
         <version>${project.version}</version>
         <type>swf</type>
     </dependency>
