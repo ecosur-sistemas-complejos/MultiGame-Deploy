@@ -42,12 +42,18 @@
             <url-pattern>/css/*</url-pattern>
         </web-resource-collection>
     </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>ecosur-war</web-resource-name>
+            <url-pattern>/messagebroker/amf</url-pattern>
+        </web-resource-collection>
+    </security-constraint>
     <!-- Enforced Security -->
     <security-role>
         <description>Default Role for MultiGame</description>
         <role-name>MultiGame</role-name>
     </security-role>
-    <security-constraint>
+    <security-constraint id="custom-access">
         <web-resource-collection> 
             <web-resource-name>ecosur-war</web-resource-name>
             <url-pattern>/*</url-pattern>
