@@ -146,6 +146,10 @@
                             <groupId>mx.ecosur</groupId>
                             <artifactId>flex-ds</artifactId>
                         </jarModule>
+                        <jarModule>
+                            <groupId>com.adobe.blazeds</groupId>
+                            <artifactId>blazeds-opt</artifactId>
+                        </jarModule>
                         <ejbModule>
                             <groupId>mx.ecosur</groupId>
                             <artifactId>ecosur-ejb</artifactId>
