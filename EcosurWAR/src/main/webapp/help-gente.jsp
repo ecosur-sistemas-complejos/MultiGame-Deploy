@@ -2,7 +2,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%@ page import="java.util.ResourceBundle"%>
-<% ResourceBundle bundle = ResourceBundle.getBundle("help-gente", request.getLocale()); %>
+<%@ page import="java.util.Locale" %>
+<%
+    Locale l = new Locale(request.getParameter("locale"));
+    System.out.println("Locale: " + l);
+    ResourceBundle bundle = ResourceBundle.getBundle("help-gente", l);
+%>
 <head>
 </head>
 <body>
