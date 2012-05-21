@@ -10,7 +10,10 @@
     </parent>      
     <groupId>mx.ecosur</groupId>    
     <artifactId>deploy-module</artifactId>
-    <packaging>pom</packaging>  
+    <packaging>pom</packaging>
+   <scm>
+       <connection>scm:git:file://localhost/Users/awaterma/repository/multigame.super/deploy</connection>
+   </scm>
     <profiles>
         <profile>
             <id>default</id>
