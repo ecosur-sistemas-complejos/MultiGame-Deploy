@@ -29,10 +29,6 @@
             <version>${project.version}</version>
             <exclusions>
                 <exclusion>
-                    <groupId>org.hibernate</groupId>
-                    <artifactId>hibernate-annotations</artifactId>
-                </exclusion>
-                <exclusion>
                   <groupId>org.antlr</groupId>
                   <artifactId>antlr</artifactId>
                 </exclusion>
@@ -78,16 +74,34 @@
             <groupId>org.drools</groupId>
             <artifactId>drools-compiler</artifactId>
             <version>${drools.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>antlr</groupId>
+                    <artifactId>antlr</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.drools</groupId>
             <artifactId>drools-core</artifactId>
             <version>${drools.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>antlr</groupId>
+                    <artifactId>antlr</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.drools</groupId>
             <artifactId>knowledge-api</artifactId>
             <version>${drools.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>antlr</groupId>
+                    <artifactId>antlr</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>mx.ecosur</groupId>
