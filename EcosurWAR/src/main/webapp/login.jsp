@@ -60,11 +60,11 @@
                 </p>
                 <div class="separator"></div>
                 <h2><%=bundle.getString("games")%></h2>
-                <p><h3><%=bundle.getString("gente")%></h3></p>
+                <p><h3><%=bundle.getString("gente")%></h3>
                 <p>
                     <%=bundle.getString("gente.description")%>
                 </p>
-                <p><h3><%=bundle.getString("manantiales")%></h3></p>
+                <p><h3><%=bundle.getString("manantiales")%></h3>
                 <p>
                     <%=bundle.getString("manantiales.description.1")%>
                 </p>
