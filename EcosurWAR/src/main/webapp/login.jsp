@@ -62,8 +62,6 @@
                 <h2><%=bundle.getString("games")%></h2>
                 <p>
                     <%=bundle.getString("code.staged")%>
-                </p>
-                <p>
                     <a href="http://github.com/ecosur-sistemas-complejos">http://github.com/ecosur-sistemas-complejos</a>
                 </p>
                 <p><h3><%=bundle.getString("gente")%></h3>
