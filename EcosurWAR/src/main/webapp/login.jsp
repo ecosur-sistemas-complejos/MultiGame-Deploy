@@ -60,6 +60,12 @@
                 </p>
                 <div class="separator"></div>
                 <h2><%=bundle.getString("games")%></h2>
+                <p>
+                    <%=bundle.getString("code.staged")%>
+                </p>
+                <p>
+                    <a href="http://github.com/ecosur-sistemas-complejos">http://github.com/ecosur-sistemas-complejos</a>
+                </p>
                 <p><h3><%=bundle.getString("gente")%></h3>
                 <p>
                     <%=bundle.getString("gente.description")%>
@@ -74,7 +80,6 @@
                 <p>
                     <%=bundle.getString("manantiales.description.3")%>
                 </p>
-
                 <div class="separator"></div>
                 <h3><%=bundle.getString("methodology")%></h3>
                 <p>
@@ -92,12 +97,6 @@
                 <div class="centered"><img src="img/architecture.png" alt="MultiGame Architecture Diagram"/></div>
                 <p>
                     <%=bundle.getString("architecture.description.2")%>
-                </p>
-                <p>
-                    <%=bundle.getString("code.staged")%>
-                </p>
-                <p>
-                    <a href="http://github.com/ecosur-sistemas-complejos">http://github.com/ecosur-sistemas-complejos</a>
                 </p>
                 <p>
                     <%=bundle.getString("code.private")%>
