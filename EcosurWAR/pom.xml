@@ -22,7 +22,7 @@
         <groupId>mx.ecosur</groupId>
         <artifactId>flex-ds</artifactId>
         <version>${project.version}</version>
-    </dependency>  
+    </dependency>
     <dependency>
         <groupId>mx.ecosur</groupId>
         <artifactId>flex-multigame</artifactId>

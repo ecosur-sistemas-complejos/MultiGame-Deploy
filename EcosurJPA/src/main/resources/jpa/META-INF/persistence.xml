@@ -4,6 +4,9 @@
              version="2.0">
     <persistence-unit name="MultiGamePU">
         <jta-data-source>java:MySQLDS</jta-data-source>
+        <!-- Common entities -->
+        <class>mx.ecosur.multigame.entity.Role</class>
+        <class>mx.ecosur.multigame.entity.User</class>
         <!-- Grid entities -->
         <class>mx.ecosur.multigame.grid.entity.GameGrid</class>
         <class>mx.ecosur.multigame.grid.entity.GridCell</class>
