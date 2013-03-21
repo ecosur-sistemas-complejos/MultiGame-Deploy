@@ -1,16 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <%@ page
     import="java.util.ResourceBundle"
 %>
 <%
     ResourceBundle bundle = ResourceBundle.getBundle("login", request.getLocale());
 %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% request.getSession().setMaxInactiveInterval(-1); %>
     <head>
+        <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>ChiapasGames</title>
         <link href="img/favicon.ico" type="image/x-icon" rel="icon" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="css/globals.css" />
     </head>
     <body>
@@ -27,24 +31,34 @@
                 </div>
                 <div>
                     <a href="http://www.conacyt.mx" target="blank">
-                        <img src="img/conacyt.jpg" width="65" height="96"
-                             alt="CONACYT" />
+                        <img src="img/conacyt.jpg" alt="CONACYT" />
                     </a>
                 </div>
             </div>
             <div id="content">
                 <div id="login">
                     <h2><%=bundle.getString("title")%></h2>
-                    <form method="post" action="j_security_check">
+                    <form class="form-horizontal" method="post" action="j_security_check">
                         <fieldset>
-                            <div class="field">
-                                <label><%=bundle.getString("username")%></label><input type="text" name="j_username"/>
-                            </div>
-                            <div class="field">
-                                <label><%=bundle.getString("password")%></label><input type="password" name="j_password"/>
-                            </div>
-                            <div class="buttons">
-                                <input type="submit" value="Login" />
+                            <div class="control-group">
+                                <label for="username" class="control-label">
+                                    <%=bundle.getString("username")%></label>
+                                <div class="controls">
+                                    <input id="username" type="text" name="j_username"/>
+                                </div>
+                                <label for="password" class="control-label">
+                                    <%=bundle.getString("password")%></label>
+                                <div class="controls">
+                                    <input id="password" type="password" name="j_password"/>
+                                </div>
+                                <div class="controls">
+                                    <fmt:bundle basename="login">
+                                        <fmt:message key="login_button" var="login" />
+                                        <input class="btn" type="submit" value="${login}">
+                                        <fmt:message key="reset" var="reset"/>
+                                        <input class="btn" type="reset" value="${reset}"/>
+                                    </fmt:bundle>
+                                </div>
                             </div>
                        </fieldset>
                     </form>
