@@ -11,7 +11,11 @@
     <link rel="stylesheet" type="text/css" href="css/globals.css" />
     <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
-</head>
+    <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+    <c:set var="localeCode" value="${pageContext.request.locale}" />
+    <c:if test="${localeCode eq 'es_ES' or localeCode eq 'es_MX'}">
+      <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/localization/messages_es.js"></script>
+    </c:if></head>
 <body>
     <div id="main">
         <div id="header">
@@ -67,33 +71,49 @@
             </div>
             <div id="login">
             <fmt:bundle basename="register">
-                <form class="form-horizontal" method="post" action="register">
+                <form id="uForm" class="form-horizontal" method="post" action="register">
                     <input type="hidden" name="CREATE" value="CREATE"/>
                     <fieldset>
                         <legend><fmt:message key="title"/></legend>
                         <div class="control-group">
-                            <label for="firstname" class="control-label"><fmt:message key="first_name"/></label>
+                            <label for="firstname" class="control-label">
+                                <fmt:message key="first_name"/>
+                                <em>*</em>
+                            </label>
                         <div class="controls">
-                            <input id="firstname" type="text" name="firstname"/>
+                            <input id="firstname" type="text" name="firstname" class="required" minlength="2"/>
                         </div>
-                        <label for="lastname"  class="control-label"><fmt:message key="last_name"/></label>
+                        <label for="lastname"  class="control-label">
+                            <fmt:message key="last_name"/>
+                            <em>*</em>
+                        </label>
                         <div class="controls">
-                            <input id="lastname"  type="text" name="lastname"/>
+                            <input id="lastname"  type="text" name="lastname" class="required" minlength="2"/>
                         </div>
-                        <label for="email" class="control-label"><fmt:message key="email"/></label>
+                        <label for="email" class="control-label">
+                            <fmt:message key="email"/>
+                            <em>*</em>
+                        </label>
                         <div class="controls">
-                            <input id="email" type="text" name="email"/>
+                            <input id="email" type="text" name="email" class="required email"/>
                         </div>
-                        <label for="username" class="control-label"><fmt:message key="username"/></label>
+                        <label for="username" class="control-label">
+                            <fmt:message key="username"/>
+                            <em>*</em>
+                        </label>
                         <div class="controls">
-                            <input id="username" type="text" name="username"/>
+                            <input id="username" type="text" name="username" class="required" minlength="2"/>
                         </div>
-                        <label for="password1" class="control-label"><fmt:message key="password"/></label>
+                        <label for="password1" class="control-label">
+                            <fmt:message key="password"/>
+                            <em>*</em>
+                        </label>
                         <div class="controls">
-                            <input id="password1" type="password" name="password1"/>
+                            <input id="password1" type="password" name="password1" minlength="6"/>
                         </div>
                         <label for="password2" class="control-label">
-                        <fmt:message key="repeat_password"/>&nbsp;
+                            <fmt:message key="repeat_password"/>
+                            <em>*</em>
                         </label>
                         <div class="controls">
                             <input id="password2" type="password" name="password2"/>
@@ -115,6 +135,14 @@
          $(document).ready(function () {
             /* Activate alert */
             $(".alert").alert();
+            $("#uForm").validate({
+               rules: {
+                 password: "required",
+                 password2: {
+                   equalTo: "#password1"
+                 }
+               }
+             });
          });
 
          var _gaq = _gaq || [];

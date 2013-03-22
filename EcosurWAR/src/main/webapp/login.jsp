@@ -6,6 +6,7 @@
 <%
     ResourceBundle bundle = ResourceBundle.getBundle("login", request.getLocale());
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% request.getSession().setMaxInactiveInterval(-1); %>
     <head>
@@ -16,8 +17,15 @@
         <link href="img/favicon.ico" type="image/x-icon" rel="icon" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="css/globals.css" />
+        <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+        <c:set var="localeCode" value="${pageContext.request.locale}" />
+        <c:if test="${localeCode eq 'es_ES' or localeCode eq 'es_MX'}">
+            <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/localization/messages_es.js"></script>
+        </c:if>
     </head>
     <body>
+        <c:out value="${localeCode}"/>
         <div id="main">
             <div id="header">
                 <div>
@@ -38,25 +46,29 @@
             <div id="content">
                 <div id="login">
                     <h2><%=bundle.getString("title")%></h2>
-                    <form class="form-horizontal" method="post" action="j_security_check">
+                    <form id="loginForm" class="form-horizontal" method="post" action="j_security_check">
                         <fieldset>
                             <div class="control-group">
                                 <label for="username" class="control-label">
-                                    <%=bundle.getString("username")%></label>
+                                    <%=bundle.getString("username")%>
+                                    <em>*</em>
+                                </label>
                                 <div class="controls">
-                                    <input id="username" type="text" name="j_username"/>
+                                    <input id="username" type="text" name="j_username" class="required" minlength="2"/>
                                 </div>
                                 <label for="password" class="control-label">
-                                    <%=bundle.getString("password")%></label>
+                                    <%=bundle.getString("password")%>
+                                    <em>*</em>
+                                </label>
                                 <div class="controls">
-                                    <input id="password" type="password" name="j_password"/>
+                                    <input id="password" type="password" name="j_password" class="required" minlength="6"/>
                                 </div>
                                 <div class="controls">
                                     <fmt:bundle basename="login">
-                                        <fmt:message key="login_button" var="login" />
-                                        <input class="btn" type="submit" value="${login}">
                                         <fmt:message key="reset" var="reset"/>
                                         <input class="btn" type="reset" value="${reset}"/>
+                                        <fmt:message key="login_button" var="login" />
+                                        <input class="btn" type="submit" value="${login}">
                                     </fmt:bundle>
                                 </div>
                             </div>
@@ -119,6 +131,9 @@
             </div>
         </div>
         <script type="text/javascript">
+            $(document).ready(function () {
+                $("#loginForm").validate();
+            });
 
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-12907657-4']);
@@ -131,7 +146,6 @@
                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
-
-</script>
+        </script>
     </body>
 </html>

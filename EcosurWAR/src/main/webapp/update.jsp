@@ -11,6 +11,11 @@
     <link rel="stylesheet" type="text/css" href="css/globals.css" />
     <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+    <c:set var="localeCode" value="${pageContext.request.locale}" />
+    <c:if test="${localeCode eq 'es_ES' or localeCode eq 'es_MX'}">
+      <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/localization/messages_es.js"></script>
+    </c:if>
 </head>
 <body>
     <div id="main">
@@ -37,22 +42,26 @@
                 <fmt:message key="update_msg"/>
             </fmt:bundle>
             </p>
-            <form class="form-horizontal" method="post" action="register">
+            <form id="uForm" class="form-horizontal" method="post" action="register">
               <div class="control-group">
                 <input type="hidden" name="UPDATE" value="UPDATE" />
                 <input type="hidden" name="uid" value="${param.uid}" />
                 <fieldset>
                     <fmt:bundle basename="update">
-                        <label for="password1" class="control-label"><fmt:message key="password"/></label>
+                        <label for="password1" class="control-label">
+                            <fmt:message key="password"/>
+                            <em>*</em>
+                        </label>
                         <div class="controls">
-                            <input id="password1" type="password" name="password1"/>
+                            <input id="password1" type="password" name="password1" minlength="6"/>
                         </div>
-
-                        <label for="password2" class="control-label"><fmt:message key="repeat_password"/></label>
+                        <label for="password2" class="control-label">
+                            <fmt:message key="repeat_password"/>
+                            <em>*</em>
+                        </label>
                         <div class="controls">
                             <input id="password2" type="password" name="password2"/>
                         </div>
-
                         <div class="controls">
                             <fmt:message key="reset" var="reset"/>
                             <input class="btn" type="reset" value="${reset}"/>
@@ -66,6 +75,17 @@
         </div>
     </div>
     <script type="text/javascript">
+        $(document).ready(function () {
+            $("#uForm").validate({
+               rules: {
+                 password: "required",
+                 password2: {
+                   equalTo: "#password1"
+                 }
+               }
+             });
+        });
+
          var _gaq = _gaq || [];
          _gaq.push(['_setAccount', 'UA-12907657-4']);
          _gaq.push(['_trackPageview']);
